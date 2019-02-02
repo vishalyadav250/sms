@@ -17,11 +17,18 @@ else
 
 
 <form id="aboutSchoolSettings" action="add-student-credentials-controller.php"  method="POST" style="display:flex; flex-direction: column; justify-content:center; min-height:100vh;">
+
   <div class="container-fluid schoolSettingBody" >
 
-   <div style="padding: 0px; margin-top: 20px;">
-          <h6 class="schoolSettingHeading" style="background-color:dodgerblue;">Student Credentials</h6>
-         <div class="schoolSettingFields row shadow justify-content-between" style="padding-bottom: 35px; padding-top: 20px; border:1px solid dodgerblue; border-radius: 0px; border-top: 0px ; margin-top: 0px;  ">
+     <div style="padding: 0px; margin-top: 20px;">
+     <h6 class="schoolSettingHeading" style="background-color:dodgerblue;">Student Credentials</h6>
+     <div class="schoolSettingFields row shadow justify-content-between" style="padding-bottom: 35px; padding-top: 20px; border:1px solid dodgerblue; border-radius: 0px; border-top: 0px ; margin-top: 0px;  ">
+
+<div class="col-md-12 mt-2">
+  <div class="text-right">
+    <button type="button" class="btn btn-success" name="button" data-toggle="modal" data-target="#student_credentials_export">Export Credentials</button>
+  </div>
+</div>
 
       <div class="col-lg-6 row mt-4">
         <div class="col-lg-4">
@@ -360,9 +367,9 @@ else
                    <option selected="selected">xlsx</option>
                  </select>
               </div>
-              <div class="form-group">
-                  <label>Select File</label>
-                  <input type="file" class="form-control" name="data_file">
+              <div class="custom-file">
+                 <label class="custom-file-label" >Choose file</label>
+                 <input type="file" class="custom-file-input" name="dataFile" id="dataFile">
               </div>
               <div class="modal-footer">
                 <input type="hidden" name="student_credentials_export" value="">
@@ -393,7 +400,7 @@ else
               document.getElementById("student_profile_img").src = e.target.result;
 
               var validate_file = $('#student_profile_data').val();
-        	    var validate = false;
+              var validate = false;
               var substring_img = ['jpeg', 'jpg', 'png'];
                for (var i_type in substring_img)
                 {
@@ -404,7 +411,7 @@ else
                if(document.getElementById('student_profile_data').value != "")
                 {
                     if(!validate)
-                    	alert('Only Supports PNG,JPEG and JPG Image Formats');
+                      alert('Only Supports PNG,JPEG and JPG Image Formats');
                 }
 
             });
@@ -412,7 +419,7 @@ else
           }
       }
 
-   	document.getElementById("student_profile_input").addEventListener("change", readFile);
+    document.getElementById("student_profile_input").addEventListener("change", readFile);
 
   </script>
 
